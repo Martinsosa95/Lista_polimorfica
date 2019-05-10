@@ -10,7 +10,7 @@ public:
 
 	Consultor();
 
-	Consultor(int nuevo_legajo, string nuevo_nombre, int nueva_paga, bool nueva_alta, int horas_catedra, int horas_descontadas) : Trabajador(nuevo_legajo, nuevo_nombre, nueva_paga, nueva_alta);
+	Consultor(int nuevo_legajo, string nuevo_nombre, int nueva_paga, bool nueva_alta, int nueva_horas_catedra, int nueva_horas_descontadas) : Trabajador(nuevo_legajo, nuevo_nombre, nueva_paga, nueva_alta);
 
 	int obtener_horas_catedra();
 
