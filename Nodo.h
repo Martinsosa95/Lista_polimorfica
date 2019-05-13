@@ -1,5 +1,5 @@
-#ifndef "NODO_H"
-#define "NODO_H"
+#ifndef NODO_H
+#define NODO_H
 #include "Trabajador.h"
 using namespace std;
 
