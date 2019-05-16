@@ -22,11 +22,15 @@ Nodo* Lista::obtener_nodo(int pos){
 
 void Lista::agregar(Trabajador* d, int pos){
 	Nodo* nuevo = new Nodo(d);
-	if(pos==1)
-		primero = d;
+	if(es_vacia())
+		primero = nuevo;
+	else if(pos == 1){
+		nuevo->asignar_siguiente(primero);
+		primero = nuevo;
+	}
 	else{
 		Nodo* aux = obtener_nodo(pos-1);
-		nuevo->asignar_siguiente(aux.obtener_siguiente);
+		nuevo->asignar_siguiente(aux->obtener_siguiente());
 		aux->asignar_siguiente(nuevo);
 	}
 	tamanio ++;
@@ -54,11 +58,11 @@ Trabajador* Lista::consultar(int pos){
 	return aux->obtener_elemento();
 }
 
-
+/*
 void Lista::swap(int pos1, int pos2);
 
 void Lista::ordenar();
-
+*/
 Lista::~Lista(){
 	for(int i = 0; i< tamanio; i++)
 		eliminar(i);
