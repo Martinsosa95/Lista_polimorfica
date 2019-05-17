@@ -28,11 +28,11 @@ public:
 	//Post:Devuelve el sueldo liquidado
 	void liquidar_sueldo();
 
-	//Descripcion:Destructor
+/*	//Descripcion:Destructor
 	//Pre:El objeto debe estar creado
 	//Post:El objeto es destruido
 	~Consultor();
-
+*/
 };
 
 #endif
