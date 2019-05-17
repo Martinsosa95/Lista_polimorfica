@@ -12,8 +12,8 @@ int Jornalero::obtener_dias_trabajados(){
 void Jornalero::liquidar_sueldo(){
 	asignar_sueldo_liquidado( obtener_paga() * dias_trabajados);
 }
-
+/*
 //Completar destructor
 Jornalero::~Jornalero(){
 	//codigo
-}
+}*/
