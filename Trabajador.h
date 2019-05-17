@@ -65,7 +65,7 @@ public:
 	//Descripcion:Destructor
 	//Pre:El objeto debe existir
 	//Post:El objeto es destruido
-	virtual ~Trabajador();
+	//virtual ~Trabajador();
 
 };
 #endif
