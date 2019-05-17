@@ -25,8 +25,8 @@ void Consultor::liquidar_sueldo(){
 		asignar_sueldo_liquidado(obtener_sueldo_liquidado() - descuento_total);
 	}
 }
-
+/*
 //completar destructor
 Consultor::~Consultor(){
 
-}
+}*/
