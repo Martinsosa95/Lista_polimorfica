@@ -31,7 +31,7 @@ public:
 	//Descripcion:Destrcutor
 	//Pre:El objeto debe estar creado
 	//Post:El objeto es destruido
-	~Empleado();
+	//~Empleado();
 
 };
 
