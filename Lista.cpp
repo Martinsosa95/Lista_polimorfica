@@ -15,7 +15,7 @@ bool Lista::es_vacia(){
 
 Nodo* Lista::obtener_nodo(int pos){
 	Nodo* aux = primero;
-	for(int i = 0; i<pos ; i++)
+	for(int i = 1; i<pos ; i++)
 		aux = aux->obtener_siguiente();
 	return aux;
 }
@@ -66,4 +66,5 @@ void Lista::ordenar();
 Lista::~Lista(){
 	for(int i = 0; i< tamanio; i++)
 		eliminar(i);
+	eliminar(tamanio); // Quedaba un alloc de mas
 }
