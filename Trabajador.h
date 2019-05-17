@@ -56,7 +56,7 @@ public:
 
 	//Pre:El objeto debe existir
 	//Post:Devuelve el valor del sueldo liquidado del trabajador
-	virtual void liquidar_sueldo();
+	virtual void liquidar_sueldo(){} // Edit para que ande, sino me daba error en vtable
 
 	//Pre:El objeto trabajador debe existir, 
 	//Post:Imprime los atributos nombre,legajo,tipo y sueldo a cobrar del trabajador
