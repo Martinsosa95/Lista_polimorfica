@@ -15,7 +15,7 @@ bool Lista::es_vacia(){
 
 Nodo* Lista::obtener_nodo(int pos){
 	Nodo* aux = primero;
-	for(int i = 0; i<pos ; i++)
+	for(int i = 1; i<pos ; i++) // Modifico i = 1 sino hace seg fault
 		aux = aux->obtener_siguiente();
 	return aux;
 }
