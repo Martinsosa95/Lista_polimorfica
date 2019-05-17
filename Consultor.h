@@ -18,8 +18,6 @@ public:
 
 	void liquidar_sueldo();
 
-	~Consultor();
-
 };
 
 #endif
