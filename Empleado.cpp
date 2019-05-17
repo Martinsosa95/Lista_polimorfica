@@ -28,8 +28,8 @@ void Empleado::liquidar_sueldo(){
 		}
 	}
 }
-
+/*
 //COMPLETAR DESTRUCTOR//
 Empleado::~Empleado(){
 
-}
+}*/
