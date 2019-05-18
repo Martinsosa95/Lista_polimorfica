@@ -60,3 +60,4 @@ void Trabajador::a_cadena(){
 	cout<<"Sueldo a cobrar: "<<sueldo_liquidado<<endl;
 
 }
+

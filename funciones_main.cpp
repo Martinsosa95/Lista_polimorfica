@@ -13,9 +13,12 @@ int main(){
         return 0; //CORTO EL PROGRAMA YA QUE NO SE PUDO ABRIR EL ARCHIVO//
     }
     cargar_lista(archivo, lista);
-    ordenar_lista(lista);
+    //ordenar_lista(lista);
     char comando;
     //char continuar_operando = 's';
+
+    for(int i=1; i<=lista.obtener_tamanio() ; i++)
+        lista.obtener_nodo(i) -> obtener_elemento() -> a_cadena();
 
     while(true){ 
 
@@ -29,6 +32,7 @@ int main(){
             cout<<"Comando invalido"<<endl;
             cout<<"Ingrese un comando"<< endl;
             cin>> comando;
+            //comando = 'a';
 
         }
 
@@ -40,6 +44,7 @@ int main(){
 
                 cout<<"Ingrese el legajo del trabajador que desea buscar"<<endl;
                 cin>>legajo_a_buscar;
+                //legajo_a_buscar = 321;
                 buscar_legajo(legajo_a_buscar, lista);
                 break;
             }
@@ -79,14 +84,13 @@ int main(){
             case 'g':{
 
             }
-
-
-
-            case 'h':
+             case 'h':
                 return 0;
+                break;
         }
 
     }
+    return 0;
 
 
 }

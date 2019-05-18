@@ -30,7 +30,7 @@ char leer_tipo_trabajador(ifstream &archivo){
 }
 
 
-void cargar_lista(ifstream &archivo, Lista lista){
+void cargar_lista(ifstream &archivo, Lista &lista){
 
     int pos_lista = 1;
     
@@ -48,9 +48,9 @@ void cargar_lista(ifstream &archivo, Lista lista){
             string ausencias;
 
             archivo >> legajo >> nombre >> paga >> llegadas_tarde >> ausencias;
-            Empleado nuevo_empleado(tipo_trabajador,atoi(legajo.c_str()), nombre, atoi(paga.c_str()),true,atoi(llegadas_tarde.c_str()),atoi(ausencias.c_str()));
-            Trabajador *nuevo_trabajador = &nuevo_empleado;
-            lista.agregar(nuevo_trabajador, pos_lista);
+            Empleado* N_Empleado =  new Empleado(tipo_trabajador,atoi(legajo.c_str()), nombre, atoi(paga.c_str()),true,atoi(llegadas_tarde.c_str()),atoi(ausencias.c_str()));
+            //Trabajador *nuevo_trabajador = &nuevo_empleado;
+            lista.agregar(N_Empleado, pos_lista);
             break;
         }
             case'J':
@@ -59,9 +59,9 @@ void cargar_lista(ifstream &archivo, Lista lista){
             string cant_dias;
         
             archivo >> legajo >> nombre >> paga >> cant_dias;
-            Jornalero nuevo_jornalero(tipo_trabajador,atoi(legajo.c_str()), nombre, atoi(paga.c_str()),true,atoi(cant_dias.c_str()));
-            Trabajador *nuevo_trabajador = &nuevo_jornalero;
-            lista.agregar(nuevo_trabajador, pos_lista);
+            //Jornalero nuevo_jornalero();
+            Jornalero* N_Jornalero = new Jornalero(tipo_trabajador,atoi(legajo.c_str()), nombre, atoi(paga.c_str()),true,atoi(cant_dias.c_str()));
+            lista.agregar(N_Jornalero, pos_lista);
             break;
         }
             case'C':
@@ -70,9 +70,10 @@ void cargar_lista(ifstream &archivo, Lista lista){
             string horas_a_descontar;
 
             archivo >> legajo >> nombre >> paga >> horas_catedras >> horas_a_descontar;
-            Consultor nuevo_consultor(tipo_trabajador,atoi(legajo.c_str()),nombre, atoi(paga.c_str()),true,atoi(horas_catedras.c_str()),atoi(horas_a_descontar.c_str()));
-            Trabajador *nuevo_trabajador = &nuevo_consultor;
-            lista.agregar(nuevo_trabajador, pos_lista);
+            //Consultor nuevo_consultor();
+            Consultor* N_Consultor = new Consultor(tipo_trabajador,atoi(legajo.c_str()),nombre, atoi(paga.c_str()),true,atoi(horas_catedras.c_str()),atoi(horas_a_descontar.c_str()));
+            //aux = &nuevo_consultor;
+            lista.agregar(N_Consultor, pos_lista);
             break;
         }
 
@@ -88,7 +89,7 @@ int buscar_legajo(int legajo_a_buscar, Lista lista){
     int pos_legajo;
 
     for(int i = 1; i<=lista.obtener_tamanio() ; i++){
-        if (lista.obtener_nodo(i)->obtener_elemento()->obtener_legajo()== legajo_a_buscar){
+        if (lista.obtener_nodo(i)->obtener_elemento()->obtener_legajo() == legajo_a_buscar){
             esta = true;
             pos_legajo = i;
         }
