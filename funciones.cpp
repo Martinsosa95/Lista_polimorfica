@@ -2,12 +2,12 @@
 
 
 char leer_tipo_trabajador(ifstream &archivo){
+    string tipo_trabajador;
     if(!archivo.eof()){
-        string tipo_trabajador;
 
         archivo >> tipo_trabajador;
     }
-return tipo_trabajador[0];    
+    return tipo_trabajador[0];    
 
 }
 
