@@ -69,7 +69,7 @@ int buscar_legajo(int legajo_a_buscar, Lista lista){
     bool esta = false;
     int pos_legajo;
 
-    for(int i = 0,i<obtener_tamanio,i++){
+    for(int i = 0;i<obtener_tamanio;i++){
         if (obtener_nodo(i).obtener_legajo()== legajo_a_buscar){
             esta = true;
             pos_legajo = i;
