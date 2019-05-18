@@ -1,5 +1,6 @@
-#ifndef "LISTA_H"
-#define "LISTA_H"
+#ifndef LISTA_H
+#define LISTA_H
+
 #include "Nodo.h"
 
 class Lista{
@@ -23,9 +24,9 @@ public:
 	Nodo* obtener_nodo(int pos);
 
 	void swap(int pos1, int pos2);
-
+/*
 	void ordenar();
-
+*/
 	~Lista();
 
 
