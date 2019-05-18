@@ -17,9 +17,15 @@
 
 char leer_tipo_trabajador(ifstream &archivo);
 
-void cargar_lista(ifstream &archivo, char tipo_trabajador, Lista lista);
+void cargar_lista(ifstream &archivo, Lista lista);
+
+void ordenar_lista(Lista lista);
+
+int buscar_legajo(int legajo_a_buscar, Lista lista);
 
 
+//A si busca maximo, B si busca minimo 
+int buscar_sueldo(char modo, Lista lista);
 
 
 #endif // FUNCIONES_H

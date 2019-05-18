@@ -35,6 +35,9 @@ int Trabajador::obtener_paga(){
 void Trabajador::asignar_alta(bool nueva_alta){
 	alta = nueva_alta;
 }
+void Trabajador::asignar_sueldo_liquidado(int nuevo_sueldo_liquidado){
+	sueldo_liquidado = nuevo_sueldo_liquidado;
+}
 
 void Trabajador::a_cadena(){
 	string string_tipo;
@@ -51,9 +54,9 @@ void Trabajador::a_cadena(){
 			break;
 	}
 
-	cout<<"Tipo de trabajador:"<< string_tipo<<endl;
-	cout<<"Nombre y apellido:"<< nombre<<endl;
-	cout<<"Legajo:"<<legajo<<endl;
-	cout<<"Sueldo a cobrar:"<<sueldo_liquidado<<endl;
+	cout<<"Tipo de trabajador: "<< string_tipo<<endl;
+	cout<<"Nombre y apellido: "<< nombre<<endl;
+	cout<<"Legajo: "<<legajo<<endl;
+	cout<<"Sueldo a cobrar: "<<sueldo_liquidado<<endl;
 
 }

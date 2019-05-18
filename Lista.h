@@ -22,9 +22,9 @@ public:
 	Trabajador* consultar(int pos);
 
 	Nodo* obtener_nodo(int pos);
-/*
-	void swap(int pos1, int pos2);
 
+	void swap(int pos1, int pos2);
+/*
 	void ordenar();
 */
 	~Lista();

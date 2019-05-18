@@ -1,7 +1,7 @@
 #include "Lista.h"
 
 Lista::Lista(){
-	primero = 0;
+	primero = NULL;
 	tamanio = 0;
 }
 
@@ -58,13 +58,20 @@ Trabajador* Lista::consultar(int pos){
 	return aux->obtener_elemento();
 }
 
+//Suponiendo que pos1<pos2
+void Lista::swap(int pos1, int pos2){
+	if((pos1 < obtener_tamanio())&&(pos2 <= obtener_tamanio() )){
+		Trabajador* aux = consultar(pos1);
+		eliminar(pos1);
+		agregar(consultar(pos2 - 1), pos1);
+		eliminar(pos2);
+		agregar(aux, pos2);
+	}
+}
 /*
-void Lista::swap(int pos1, int pos2);
-
-void Lista::ordenar();
-*/
+void Lista::ordenar();*/
 Lista::~Lista(){
-	for(int i = 0; i< tamanio; i++)
+	for(int i = 1; i< tamanio; i++)
 		eliminar(i);
 	eliminar(tamanio); // Quedaba un alloc de mas
 }

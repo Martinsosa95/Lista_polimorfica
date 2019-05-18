@@ -16,7 +16,7 @@ int Empleado::obtener_ausencias(){
 
 void Empleado::liquidar_sueldo(){
 	if(llegadas_tarde <= 3 && ausencias == 0){
-		asignar_sueldo_liquidado(1.10 * obtener_paga());
+		asignar_sueldo_liquidado(int(1.10 * obtener_paga()));
 	}
 	else{
 		if(llegadas_tarde > 3){
