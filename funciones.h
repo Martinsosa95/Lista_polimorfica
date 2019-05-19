@@ -26,6 +26,8 @@ void ordenar_lista(Lista lista);
 int buscar_legajo(int legajo_a_buscar, Lista* lista);
 
 void dar_de_baja(int pos_legajo, Lista* lista);
+
+void dar_de_alta(int pos_legajo, Lista* lista);
 //A si busca maximo, B si busca minimo 
 int buscar_sueldo(char modo, Lista* lista);
 

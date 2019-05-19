@@ -110,19 +110,21 @@ int buscar_sueldo(char modo, Lista* lista){
     int pos_legajo;
     int sueldo;
     int sueldo_lista;
+    bool alta;
     if(modo=='A')
         sueldo=0;
     else
-        sueldo=100000;
+        sueldo=1000000;
 
     for(int i = 1;i<=lista->obtener_tamanio();i++){
         sueldo_lista=lista->obtener_nodo(i)->obtener_elemento()->obtener_sueldo_liquidado();
+        alta=lista->obtener_nodo(i)->obtener_elemento()->obtener_alta();
         cout<<sueldo_lista<<endl;
-        if ((sueldo_lista< sueldo)&&(modo == 'B')){
+        if ((sueldo_lista< sueldo)&&(modo == 'B')&& alta){
             sueldo=sueldo_lista;
             pos_legajo = i;
         }
-        if((sueldo_lista > sueldo)&&(modo == 'A')){
+        if((sueldo_lista > sueldo)&&(modo == 'A')&& alta){
             sueldo=sueldo_lista;
             pos_legajo = i;
         }
@@ -137,4 +139,8 @@ int buscar_sueldo(char modo, Lista* lista){
 
 void dar_de_baja(int pos_legajo,Lista* lista){
     lista->obtener_nodo(pos_legajo) -> obtener_elemento() -> asignar_alta(false);
+}
+void dar_de_alta(int pos_legajo, Lista* lista){
+    if(!(lista->obtener_nodo(pos_legajo) -> obtener_elemento() ->obtener_alta()))
+        lista->obtener_nodo(pos_legajo) -> obtener_elemento() -> asignar_alta(true);
 }
