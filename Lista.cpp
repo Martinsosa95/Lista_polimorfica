@@ -15,15 +15,14 @@ bool Lista::es_vacia(){
 
 Nodo* Lista::obtener_nodo(int pos){
 	Nodo* aux = primero;
-	Nodo** aux2 = &primero;
 	for(int i = 1; i<pos ; i++)
 		aux = aux->obtener_siguiente();
-	primero = *aux2;
 	return aux;
 }
 
 void Lista::agregar(Trabajador* d, int pos){
 	Nodo* nuevo = new Nodo(d);
+	//nuevo->obtener_elemento()->a_cadena();
 	if(es_vacia())
 		primero = nuevo;
 	else if(pos == 1){
@@ -70,9 +69,9 @@ void Lista::swap(int pos1, int pos2){
 		agregar(aux, pos2);
 	}
 }
-/*
-void Lista::ordenar();*/
+
 Lista::~Lista(){
+	cout<<"Eliminando lista"<<endl;
 	while(!es_vacia())
 		eliminar(1);
 }

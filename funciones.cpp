@@ -29,9 +29,7 @@ char leer_tipo_trabajador(ifstream &archivo){
     return 'F';
 }
 
-
-void cargar_lista(ifstream &archivo, Lista &lista){
-
+void cargar_lista(ifstream &archivo,Lista* lista){
     int pos_lista = 1;
     
     string legajo;
@@ -39,7 +37,6 @@ void cargar_lista(ifstream &archivo, Lista &lista){
     string paga;
     char tipo_trabajador = leer_tipo_trabajador(archivo);
     while (tipo_trabajador != 'F'){ // Cond de corte para cuando llegue al final
-        cout<<pos_lista<<endl;
         switch (tipo_trabajador){
 
             case'E':
@@ -48,9 +45,9 @@ void cargar_lista(ifstream &archivo, Lista &lista){
             string ausencias;
 
             archivo >> legajo >> nombre >> paga >> llegadas_tarde >> ausencias;
-            Empleado* N_Empleado =  new Empleado(tipo_trabajador,atoi(legajo.c_str()), nombre, atoi(paga.c_str()),true,atoi(llegadas_tarde.c_str()),atoi(ausencias.c_str()));
-            //Trabajador *nuevo_trabajador = &nuevo_empleado;
-            lista.agregar(N_Empleado, pos_lista);
+            Empleado* N_Empleado = new Empleado(tipo_trabajador,atoi(legajo.c_str()), nombre, atoi(paga.c_str()),true,atoi(llegadas_tarde.c_str()),atoi(ausencias.c_str()));
+            //Trabajador *nuevo_trabajador = N_Empleado;
+            lista -> agregar(N_Empleado, pos_lista);
             break;
         }
             case'J':
@@ -61,7 +58,8 @@ void cargar_lista(ifstream &archivo, Lista &lista){
             archivo >> legajo >> nombre >> paga >> cant_dias;
             //Jornalero nuevo_jornalero();
             Jornalero* N_Jornalero = new Jornalero(tipo_trabajador,atoi(legajo.c_str()), nombre, atoi(paga.c_str()),true,atoi(cant_dias.c_str()));
-            lista.agregar(N_Jornalero, pos_lista);
+            //Trabajador* nuevo_jornalero = N_Jornalero;
+            lista -> agregar(N_Jornalero, pos_lista);
             break;
         }
             case'C':
@@ -72,31 +70,30 @@ void cargar_lista(ifstream &archivo, Lista &lista){
             archivo >> legajo >> nombre >> paga >> horas_catedras >> horas_a_descontar;
             //Consultor nuevo_consultor();
             Consultor* N_Consultor = new Consultor(tipo_trabajador,atoi(legajo.c_str()),nombre, atoi(paga.c_str()),true,atoi(horas_catedras.c_str()),atoi(horas_a_descontar.c_str()));
-            //aux = &nuevo_consultor;
-            lista.agregar(N_Consultor, pos_lista);
+            //Trabajador* nuevo_consultor = N_Consultor;
+            lista -> agregar(N_Consultor, pos_lista);
             break;
         }
 
         }
-
     pos_lista++;
     tipo_trabajador = leer_tipo_trabajador(archivo);
-    }
+    }  
 }
 
-int buscar_legajo(int legajo_a_buscar, Lista lista){
+int buscar_legajo(int legajo_a_buscar, Lista* lista){
     bool esta = false;
     int pos_legajo;
 
-    for(int i = 1; i<=lista.obtener_tamanio() ; i++){
-        if (lista.obtener_nodo(i)->obtener_elemento()->obtener_legajo() == legajo_a_buscar){
+    for(int i = 1; i<=lista->obtener_tamanio() ; i++){
+        if (lista->obtener_nodo(i)->obtener_elemento()->obtener_legajo() == legajo_a_buscar){
             esta = true;
             pos_legajo = i;
         }
     }
 
     if(esta){
-        lista.obtener_nodo(pos_legajo)->obtener_elemento()->a_cadena();
+        lista->obtener_nodo(pos_legajo)->obtener_elemento()->a_cadena();
         return pos_legajo;
     }
     return -1;
@@ -109,7 +106,7 @@ void ordenar_lista(Lista lista){
             if (lista.obtener_nodo(j)->obtener_elemento()->obtener_legajo()> lista.obtener_nodo(j+1)->obtener_elemento()->obtener_legajo()) 
                 lista.swap(j, j+1); 
 }
-int buscar_sueldo(char modo, Lista lista){
+int buscar_sueldo(char modo, Lista* lista){
     int pos_legajo;
     int sueldo;
     int sueldo_lista;
@@ -118,8 +115,9 @@ int buscar_sueldo(char modo, Lista lista){
     else
         sueldo=100000;
 
-    for(int i = 1;i<lista.obtener_tamanio();i++){
-        sueldo_lista=lista.obtener_nodo(i)->obtener_elemento()->obtener_sueldo_liquidado();
+    for(int i = 1;i<=lista->obtener_tamanio();i++){
+        sueldo_lista=lista->obtener_nodo(i)->obtener_elemento()->obtener_sueldo_liquidado();
+        cout<<sueldo_lista<<endl;
         if ((sueldo_lista< sueldo)&&(modo == 'B')){
             sueldo=sueldo_lista;
             pos_legajo = i;
@@ -134,10 +132,9 @@ int buscar_sueldo(char modo, Lista lista){
     else
         cout<<"El sueldo minimo es de "<<sueldo<<endl;
     
-
     return pos_legajo;
 }
 
-void dar_de_baja(int pos_legajo,Lista lista){
-    lista.obtener_nodo(pos_legajo) -> obtener_elemento() -> asignar_alta(false);
+void dar_de_baja(int pos_legajo,Lista* lista){
+    lista->obtener_nodo(pos_legajo) -> obtener_elemento() -> asignar_alta(false);
 }

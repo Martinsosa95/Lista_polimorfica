@@ -5,8 +5,8 @@
 
 class Empleado : public Trabajador{
 private:
-	int llegadas_tarde;
-	int ausencias;
+	int *llegadas_tarde;
+	int *ausencias;
 public:
 
 	Empleado();
@@ -31,7 +31,7 @@ public:
 	//Descripcion:Destrcutor
 	//Pre:El objeto debe estar creado
 	//Post:El objeto es destruido
-	//~Empleado();
+	~Empleado();
 
 };
 

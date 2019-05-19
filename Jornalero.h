@@ -5,7 +5,7 @@
 
 class Jornalero : public Trabajador{
 private:
-	int dias_trabajados;
+	int *dias_trabajados;
 public:
 
 	Jornalero();
@@ -26,7 +26,7 @@ public:
 	//Descripcion:Desctructor
 	//Pre:El objeto debe estar creado
 	//Post:Destruye el objeto Jornalero
-	//~Jornalero();
+	~Jornalero();
 };
 
 #endif

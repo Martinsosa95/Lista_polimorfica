@@ -24,9 +24,9 @@ public:
 	Nodo* obtener_nodo(int pos);
 
 	void swap(int pos1, int pos2);
-/*
+
 	void ordenar();
-*/
+
 	~Lista();
 
 

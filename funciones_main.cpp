@@ -2,9 +2,8 @@
 
 int main(){
 
-    Lista lista;
+    Lista* lista = new Lista;
     ifstream archivo ;
-
 
     archivo.open("trabajadores.txt");
 
@@ -12,14 +11,19 @@ int main(){
         cout<< "No se pudo abrir el archivo"<< endl;
         return 0; //CORTO EL PROGRAMA YA QUE NO SE PUDO ABRIR EL ARCHIVO//
     }
-    cargar_lista(archivo, lista);
+
+
+    cargar_lista(archivo,lista);
+    //lista.obtener_nodo(4) -> obtener_elemento() -> a_cadena();
     //ordenar_lista(lista);
+    cout<< lista->obtener_tamanio()<<endl;
     char comando;
     //char continuar_operando = 's';
-
+    //lista.obtener_nodo(3) -> obtener_elemento() -> a_cadena();
+    /*
     for(int i=1; i<=lista.obtener_tamanio() ; i++)
         lista.obtener_nodo(i) -> obtener_elemento() -> a_cadena();
-
+    */
     while(true){ 
 
         menu();
@@ -32,7 +36,7 @@ int main(){
             cout<<"Comando invalido"<<endl;
             cout<<"Ingrese un comando"<< endl;
             cin>> comando;
-            comando = 'a';
+            //comando = 'a';
 
         }
 
@@ -44,7 +48,7 @@ int main(){
 
                 cout<<"Ingrese el legajo del trabajador que desea buscar"<<endl;
                 cin>>legajo_a_buscar;
-                legajo_a_buscar = 300;
+                //legajo_a_buscar = 321;
                 buscar_legajo(legajo_a_buscar, lista);
                 break;
             }
@@ -72,25 +76,24 @@ int main(){
             case 'e':{
                 int legajo;
                 legajo = buscar_sueldo('A', lista);
-                cout<<lista.obtener_nodo(legajo)->obtener_elemento()->obtener_nombre()<<endl;
+                cout<<lista->obtener_nodo(legajo)->obtener_elemento()->obtener_nombre()<<endl;
                 break;
             }
             case 'f':{
                 int legajo;
                 legajo = buscar_sueldo('B', lista);
-                cout<<lista.obtener_nodo(legajo)->obtener_elemento()->obtener_nombre()<<endl;
+                cout<<lista->obtener_nodo(legajo)->obtener_elemento()->obtener_nombre()<<endl;
                 break;
             }
             case 'g':{
 
             }
-             case 'h':
+             case 'h':{
+                delete lista;
                 return 0;
-                break;
         }
 
+     }
+
     }
-    return 0;
-
-
 }
