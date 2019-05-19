@@ -24,3 +24,7 @@ Trabajador* Nodo::obtener_elemento(){
 Nodo* Nodo::obtener_siguiente(){
 	return psig;
 }
+Nodo::~Nodo(){
+	delete elemento;
+	cout<<"Nodo destruido"<<endl;
+}

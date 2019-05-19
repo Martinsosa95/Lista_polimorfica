@@ -1,19 +1,21 @@
 #include "Jornalero.h"
 
-Jornalero::Jornalero(){
+Jornalero::Jornalero(char nuevo_tipo,int nuevo_legajo, string nuevo_nombre, int nueva_paga, bool nueva_alta, int nueva_dias_trabajados) : Trabajador(nuevo_tipo,nuevo_legajo, nuevo_nombre, nueva_paga, nueva_alta){
+	dias_trabajados = new int;
+	*dias_trabajados = nueva_dias_trabajados;
+	liquidar_sueldo();
 }
 
-Jornalero::Jornalero(int nuevo_legajo, string nuevo_nombre, int nueva_paga, bool nueva_alta, int nueva_dias_trabajados) : Trabajador(nuevo_legajo, nuevo_nombre, nueva_paga, nueva_alta){
-	dias_trabajados = nueva_dias_trabajados;
+int Jornalero::obtener_dias_trabajados(){
+	return *dias_trabajados;
 }
 
-int obtener_dias_trabajados(){
-	return dias_trabajados;
+void Jornalero::liquidar_sueldo(){
+	asignar_sueldo_liquidado( obtener_paga() * (*dias_trabajados));
 }
 
-void liquidar_sueldo(){
-	return paga * dias_trabajados;
+//Completar destructor
+Jornalero::~Jornalero(){
+	cout<<"Jornalero destruido"<<endl;
+	delete dias_trabajados;
 }
-
-~Jornalero::Jornalero();
-
