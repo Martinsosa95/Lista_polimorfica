@@ -5,8 +5,8 @@
 
 class Consultor : public Trabajador{
 private:
-	int *horas_catedra;
-	int *horas_descontadas;
+	int horas_catedra;
+	int horas_descontadas;
 public:
 
 	Consultor();
@@ -30,9 +30,9 @@ public:
 
 /*	//Descripcion:Destructor
 	//Pre:El objeto debe estar creado
-	//Post:El objeto es destruido*/
+	//Post:El objeto es destruido
 	~Consultor();
-
+*/
 };
 
 #endif

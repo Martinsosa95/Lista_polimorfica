@@ -7,12 +7,12 @@ using namespace std;
 
 class Trabajador{
 private:
-	char *tipo;
-	int *legajo;
-	string *nombre;
-	int *paga;//Despues vemos, dependiendo del tipo de trabajador lo calculamos distinto NUMERO LEIDO DEL ARCHIVO
-	bool *alta;
-	int *sueldo_liquidado;// Despues de usar el metodo
+	char tipo;
+	int legajo;
+	string nombre;
+	int paga;//Despues vemos, dependiendo del tipo de trabajador lo calculamos distinto NUMERO LEIDO DEL ARCHIVO
+	bool alta;
+	int sueldo_liquidado;// Despues de usar el metodo
 public:
 
 	Trabajador();
@@ -65,7 +65,7 @@ public:
 	//Descripcion:Destructor
 	//Pre:El objeto debe existir
 	//Post:El objeto es destruido
-	virtual ~Trabajador();
+	//virtual ~Trabajador();
 
 };
 #endif

@@ -24,7 +24,7 @@ public:
 
 	Nodo* obtener_siguiente();
 
-	~Nodo();
+
 
 };
 #endif
