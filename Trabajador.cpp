@@ -1,38 +1,84 @@
 #include "Trabajador.h"
 
-//Trabajador();
-Trabajador::Trabajador(int nuevo_legajo, string nuevo_nombre, int nueva_paga, bool nueva_alta){
-	legajo = nuevo_legajo;
-	nombre = nuevo_nombre;
-	paga = nueva_paga;
-	alta = nueva_alta;
-	sueldo_liquidado = liquidar_sueldo();
+Trabajador::Trabajador(){
+	
 }
 
-	bool obtener_alta(){
-		return alta;
+Trabajador::Trabajador(char nuevo_tipo,int nuevo_legajo, string nuevo_nombre, int nueva_paga, bool nueva_alta){
+	tipo = new char;
+	legajo = new int;
+	nombre = new string;
+	paga = new int;
+	alta = new bool;
+	sueldo_liquidado= new int;
+	*tipo = nuevo_tipo;
+	*legajo = nuevo_legajo;
+	*nombre = nuevo_nombre;
+	*paga = nueva_paga;
+	*alta = nueva_alta;
+	*sueldo_liquidado=0;
+}
+
+bool Trabajador::obtener_alta(){
+	return *alta;
+}
+
+char Trabajador::obtener_tipo(){
+	return *tipo;
+}
+
+int Trabajador::obtener_legajo(){
+	return *legajo;
+}
+
+int Trabajador::obtener_sueldo_liquidado(){
+	return *sueldo_liquidado;
+}
+
+string Trabajador::obtener_nombre(){
+ 	return *nombre;
+ }
+
+int Trabajador::obtener_paga(){
+	return *paga;
+}
+
+void Trabajador::asignar_alta(bool nueva_alta){
+	*alta = nueva_alta;
+}
+void Trabajador::asignar_sueldo_liquidado(int nuevo_sueldo_liquidado){
+	*sueldo_liquidado = nuevo_sueldo_liquidado;
+}
+
+void Trabajador::a_cadena(){
+	string string_tipo;
+	
+	switch(*tipo){
+		case 'C':
+			string_tipo = "Consultor";
+			break;
+		case 'E':
+			string_tipo = "Empleado";
+			break;
+		case 'J':
+			string_tipo = "Jornalero";
+			break;
 	}
 
-	int obtener_legajo(){
-		return legajo;
-	}
+	cout<<"Tipo de trabajador: "<< string_tipo<<endl;
+	cout<<"Nombre y apellido: "<< *nombre<<endl;
+	cout<<"Legajo: "<<*legajo<<endl;
+	cout<<"Sueldo a cobrar: "<<*sueldo_liquidado<<endl;
 
-	int obtener_sueldo_liquidado(){
-		return sueldo_liquidado;
-	}
+}
 
-	string obtener_nombre(){
-		return nombre;
-	}
+Trabajador::~Trabajador(){
+	cout<<"Trabajador destruido"<<endl;
+	delete tipo;
+	delete legajo;
+	delete nombre;
+	delete paga;
+	delete alta;
+	delete sueldo_liquidado;
+}
 
-	int obtener_paga(){
-		return paga;
-	}
-
-	void asignar_alta(bool nueva_alta){
-		alta = nueva_alta; //No agregamos los otros asignar porque suponemos que solo se ingresan datos por la lectura del archivo
-	} 
-
-	virtual void liquidar_sueldo();
-
-virtual ~Trabajador();
