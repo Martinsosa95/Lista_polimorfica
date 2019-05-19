@@ -137,10 +137,6 @@ int buscar_sueldo(char modo, Lista* lista){
     return pos_legajo;
 }
 
-void dar_de_baja(int pos_legajo,Lista* lista){
-    lista->obtener_nodo(pos_legajo) -> obtener_elemento() -> asignar_alta(false);
-}
-void dar_de_alta(int pos_legajo, Lista* lista){
-    if(!(lista->obtener_nodo(pos_legajo) -> obtener_elemento() ->obtener_alta()))
-        lista->obtener_nodo(pos_legajo) -> obtener_elemento() -> asignar_alta(true);
+void cambiar_alta(int pos_legajo,Lista* lista,bool cond){
+    lista->obtener_nodo(pos_legajo) -> obtener_elemento() -> asignar_alta(cond);
 }

@@ -42,28 +42,31 @@ int main(){
             }
             
 
-            case 'b':{
+            case 'b':
+            {
                 int legajo_a_buscar,pos_legajo;
                 do{
-                cout<<"ingrese el legajo del trabajador: "<<endl;
+                cout<<"ingrese el legajo del trabajador a dar de baja: "<<endl;
                 cin>>legajo_a_buscar;
                 pos_legajo = buscar_legajo(legajo_a_buscar,lista);
                 }
                 while(pos_legajo == -1);
-                dar_de_baja(pos_legajo,lista);
+                cambiar_alta(pos_legajo,lista,false);
                 break;
 
             }
-            case 'c':{
-                int legajo_a_buscar, pos_legajo;
+            case 'c':
+            {
+                int legajo_a_buscar,pos_legajo;
                 do{
-                cout<<"ingrese el legajo del trabajador: "<<endl;
+                cout<<"ingrese el legajo del trabajador a dar de alta: "<<endl;
                 cin>>legajo_a_buscar;
                 pos_legajo = buscar_legajo(legajo_a_buscar,lista);
                 }
                 while(pos_legajo == -1);
-                dar_de_alta(pos_legajo, lista);
+                cambiar_alta(pos_legajo,lista,true);
                 break;
+
             }
 
             case 'd':{
