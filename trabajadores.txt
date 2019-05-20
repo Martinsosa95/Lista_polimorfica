@@ -1,0 +1,5 @@
+E   321  Perez_Rosa  42000 2   0
+E   457  Sosa_Juan  40000 0   1
+J   125  Rossi_Rocío  850  7
+C   82   Kachanovsky_Judith  1500  5   2
+J   390  Ruiz_Pedro  900  1
