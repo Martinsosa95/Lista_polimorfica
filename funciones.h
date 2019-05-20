@@ -29,7 +29,7 @@ void cargar_lista(ifstream &archivo,Lista*);
 
 //Pre:La lista debe estar creada
 //Post:La lista esta ordenada por numero de legajo
-void ordenar_lista(Lista lista);
+void ordenar_lista(Lista* lista);
 
 //Pre:La lista debe existir y el legajo a buscar debe ser un entero positivo
 //Post:Devuelve la posicion del legajo buscado en la Lista o -1 si el legajo buscado no se encuentra en esta
@@ -45,10 +45,10 @@ int buscar_sueldo(char modo, Lista* lista);
 
 //Pre:
 //Post:
-void swap2(int*,int*);
+//void swap2(int*,int*);
 
 //Pre:
 //Post:
-void ordenar_lista_2(Lista* lista,Lista*);
+//void ordenar_lista_2(Lista* lista,Lista*);
 
 #endif // FUNCIONES_H

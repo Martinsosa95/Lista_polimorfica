@@ -3,7 +3,6 @@
 int main(){
 
     Lista* lista = new Lista;
-    Lista* aux = new Lista;
     ifstream archivo ;
 
     archivo.open("trabajadores.txt");
@@ -13,9 +12,7 @@ int main(){
         return 0; //CORTO EL PROGRAMA YA QUE NO SE PUDO ABRIR EL ARCHIVO//
     }
     cargar_lista(archivo,lista);
-    ordenar_lista_2(lista,aux);
-    //delete lista; Pierdo referencias de aux, me queda mucha basura
-    lista = aux; // Piso memoria de aux 66-60 allocs-frees
+    ordenar_lista(lista);
 
     cout<< lista->obtener_tamanio()<<endl;
     char comando;

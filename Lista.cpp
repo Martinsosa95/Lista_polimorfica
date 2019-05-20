@@ -52,6 +52,35 @@ void Lista::eliminar(int pos){
 	delete aux;
 }
 
+Nodo* Lista::retirar(int pos){
+	Nodo* aux;
+	if(pos == 1){
+		aux = primero;
+		primero = aux->obtener_siguiente();
+	}
+	else{
+		Nodo* anterior = obtener_nodo(pos-1);
+		aux = anterior->obtener_siguiente();
+		anterior->asignar_siguiente(aux->obtener_siguiente());
+	}
+	tamanio--;
+	return aux;
+}
+
+void Lista::agregar_sin_asignar(Nodo* nodo,int pos){
+	if(es_vacia())
+		primero = nodo;
+	else if(pos == 1){
+		nodo->asignar_siguiente(primero);
+		primero = nodo;
+	}
+	else{
+		Nodo* aux = obtener_nodo(pos-1);
+		nodo->asignar_siguiente(aux->obtener_siguiente());
+		aux->asignar_siguiente(nodo);
+	}
+	tamanio ++;
+}
 
 //POS: Devuelve el elemento de la lista en esa posicion.
 Trabajador* Lista::consultar(int pos){
@@ -62,11 +91,10 @@ Trabajador* Lista::consultar(int pos){
 //Suponiendo que pos1<pos2
 void Lista::swap(int pos1, int pos2){
 	if((pos1 < obtener_tamanio())&&(pos2 <= obtener_tamanio() )){
-		Trabajador* aux = consultar(pos1);
-		eliminar(pos1);
-		agregar(consultar(pos2 - 1), pos1);
-		eliminar(pos2);
-		agregar(aux, pos2);
+	Nodo* aux = retirar(pos1);
+	Nodo* aux2 = retirar(pos2-1);
+	agregar_sin_asignar(aux2,pos1);
+	agregar_sin_asignar(aux,pos2);
 	}
 }
 

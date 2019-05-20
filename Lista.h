@@ -25,6 +25,10 @@ public:
 	//Post:Se eleimino de la lista el objeto en la posicion pos
 	void eliminar(int pos);
 	
+	void agregar_sin_asignar(Nodo* nodo,int pos);
+
+	Nodo* retirar(int pos);
+
 	//Pre:El objeto debe existir
 	//Post:Devuelve true si la lista esta vacia y false en caso contrario
 	bool es_vacia();

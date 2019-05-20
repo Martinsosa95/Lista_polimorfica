@@ -99,12 +99,12 @@ int buscar_legajo(int legajo_a_buscar, Lista* lista){
     return -1;
 }
 
-void ordenar_lista(Lista lista){
-    int n = lista.obtener_tamanio();
+void ordenar_lista(Lista* lista){
+    int n = lista->obtener_tamanio();
     for (int i = 1; i <= n-1; i++)        
         for (int j = 1; j <= n-i-1; j++)  
-            if (lista.obtener_nodo(j)->obtener_elemento()->obtener_legajo()> lista.obtener_nodo(j+1)->obtener_elemento()->obtener_legajo()) 
-                lista.swap(j, j+1); 
+            if (lista->obtener_nodo(j)->obtener_elemento()->obtener_legajo()> lista->obtener_nodo(j+1)->obtener_elemento()->obtener_legajo()) 
+                lista->swap(j, j+1); 
 }
 int buscar_sueldo(char modo, Lista* lista){
     int pos_legajo;
@@ -139,38 +139,4 @@ int buscar_sueldo(char modo, Lista* lista){
 
 void cambiar_alta(int pos_legajo,Lista* lista,bool cond){
     lista->obtener_nodo(pos_legajo) -> obtener_elemento() -> asignar_alta(cond);
-}
-
-void swap(int* x1,int* x2){
-    int aux = *x1;
-    *x1 = *x2;
-    *x1 = aux;
-}
-
-void ordenar_lista_2(Lista* lista,Lista* aux){
-    int n = lista -> obtener_tamanio();
-    int* legajos = new int[n];
-    int* posiciones = new int[n];
-    for (int i=1; i <= n;i++){
-        legajos[i-1] = lista -> obtener_nodo(i) -> obtener_elemento() -> obtener_legajo();
-        posiciones[i-1] = i;
-    }
-
-
-    for (int i = 0; i < n; i++){        
-        for (int j = 0; j < n-i-1; j++){  
-            if (legajos[j]>legajos[j+1]){
-                swap(legajos[j],legajos[j+1]);
-                swap(posiciones[j],posiciones[j+1]);
-            }                 
-        }
-    }
-
-    for(int i=0;i<n;i++)
-        printf("%d\n",legajos[i]);
-
-    for(int i=1;i<=n;i++)
-        aux -> agregar(lista -> obtener_nodo(posiciones[i-1]) -> obtener_elemento(),i);
-    delete[] legajos;
-    delete[] posiciones;
 }
