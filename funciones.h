@@ -39,9 +39,13 @@ int buscar_legajo(int legajo_a_buscar, Lista* lista);
 //Post:El atributo alta del trabajdor es modificado
 void cambiar_alta(int pos_legajo,Lista* lista ,bool cond);
 
-//Pre:Modo vale A si busca maximo o B si busca minimo.Ademas la lista debe existir
+//Pre:Modo vale A si busca maximo o B si busca minimo.Ademas la lista debe existir y en ella debe haber al menos un trabajador de alta
 //Post:Devuelve el sueldo maximo o minimo de la lista
 int buscar_sueldo(char modo, Lista* lista);
+
+//Pre:La lista debe existir
+//Post:Se realizara la operacion correspondiente al parametro comando
+bool operaciones(Lista* lista,char comando);
 
 
 #endif // FUNCIONES_H
